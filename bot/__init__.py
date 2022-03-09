@@ -1,8 +1,5 @@
-import os
-import sys
 import logging
 from os import environ
-from dotenv import load_dotenv
 from pyrogram import Client
 
 log_level = environ.get("LOG_LEVEL", "INFO").upper()
@@ -22,13 +19,10 @@ tg_session = environ.get("TELEGRAM_SESSION", None)
 advance_config = environ.get("ADVANCE_CONFIG", None)
 from_chats = []
 
-if tg_session:
-  LOG.info("Session Mode - {tg_session}")
-  app = Client(tg_session, api_id, api_hash)
+app = Client(tg_session, api_id, api_hash)
   
 with app:
-    if advance_config:
-        for chats in advance_config.split(";"):
+    for chats in advance_config.split(";"):
           chat = chats.strip().split()
           f = int(chat[0])
           del chat[0]
