@@ -35,5 +35,5 @@ with app:
             chats_data[f] = chat
           if not f in from_chats:
             from_chats.append(f)
-        LOG.info(f"From Chats: {from_chats}")
-        LOG.info(f"Advanced Config: {chats_data}")
+    LOG.info(f"From Chats: {from_chats}")
+    LOG.info(f"Advanced Config: {chats_data}")
