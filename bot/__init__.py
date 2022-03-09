@@ -28,18 +28,18 @@ if tg_session:
   
 with app:
     if advance_config:
-    for chats in advance_config.split(";"):
-      chat = chats.strip().split()
-      f = int(chat[0])
-      del chat[0]
-      chat = [int(i) for i in chat]
-      if f in chats_data:
-        c = chats_data[f]
-        c.extend(chat)
-        chats_data[f] = c
-      else:
-        chats_data[f] = chat
-      if not f in from_chats:
-        from_chats.append(f)
-    LOG.info(f"From Chats: {from_chats}")
-    LOG.info(f"Advanced Config: {chats_data}")
+        for chats in advance_config.split(";"):
+          chat = chats.strip().split()
+          f = int(chat[0])
+          del chat[0]
+          chat = [int(i) for i in chat]
+          if f in chats_data:
+            c = chats_data[f]
+            c.extend(chat)
+            chats_data[f] = c
+          else:
+            chats_data[f] = chat
+          if not f in from_chats:
+            from_chats.append(f)
+        LOG.info(f"From Chats: {from_chats}")
+        LOG.info(f"Advanced Config: {chats_data}")
